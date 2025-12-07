@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"devDependencies": {
+		"@playwright/test": "^1.57.0",
 		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
 		"@svgr/webpack": "^8.0.1",
 		"@types/react": "^18.2.0",
