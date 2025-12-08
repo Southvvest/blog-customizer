@@ -4,6 +4,8 @@ import { Button } from 'src/ui/button';
 import { Select } from 'src/ui/select';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
+import { Text } from 'src/ui/text';
+import clsx from 'clsx';
 
 import {
   fontFamilyOptions,
@@ -56,51 +58,61 @@ export const ArticleParamsForm = ({ onApply, onReset, defaultState }: ArticlePar
   };
 
   return (
-    <>
-      <ArrowButton isOpen={isOpen} onClick={handleToggle} />
-      <aside className={`${styles.container} ${isOpen ? styles.container_open : ''}`} ref={formRef}>
-        <div className={styles.form}>
-          <Select
-            title="Шрифт"
-            selected={formState.fontFamilyOption}
-            options={fontFamilyOptions}
-            onChange={(option) => setFormState({ ...formState, fontFamilyOption: option })}
-          />
-          <Separator />
-          <RadioGroup
-            title="Размер шрифта"
-            name="fontSize"
-            selected={formState.fontSizeOption}
-            options={fontSizeOptions}
-            onChange={(option) => setFormState({ ...formState, fontSizeOption: option })}
-          />
-          <Separator />
-          <Select
-            title="Цвет шрифта"
-            selected={formState.fontColor}
-            options={fontColors}
-            onChange={(option) => setFormState({ ...formState, fontColor: option })}
-          />
-          <Separator />
-          <Select
-            title="Цвет фона"
-            selected={formState.backgroundColor}
-            options={backgroundColors}
-            onChange={(option) => setFormState({ ...formState, backgroundColor: option })}
-          />
-          <Separator />
-          <Select
-            title="Ширина контента"
-            selected={formState.contentWidth}
-            options={contentWidthArr}
-            onChange={(option) => setFormState({ ...formState, contentWidth: option })}
-          />
-          <div className={styles.bottomContainer}>
-            <Button title="Сбросить" type="clear" onClick={handleFormReset} />
-            <Button title="Применить" type="apply" onClick={handleApply} />
+      <>
+    <ArrowButton isOpen={isOpen} onClick={handleToggle} />
+    <aside className={clsx(styles.container, isOpen && styles.container_open)} ref={formRef}>
+      <div className={styles.form}>
+        <h2 className={styles.title}>задайте параметры</h2>
+        
+        <div className={styles.sectionsContainer}>
+          <div className={styles.section}>
+            <Select
+              title="Шрифт"
+              selected={formState.fontFamilyOption}
+              options={fontFamilyOptions}
+              onChange={(option) => setFormState({ ...formState, fontFamilyOption: option })}
+            />
+            <RadioGroup
+              title="Размер шрифта"
+              name="fontSize"
+              selected={formState.fontSizeOption}
+              options={fontSizeOptions}
+              onChange={(option) => setFormState({ ...formState, fontSizeOption: option })}
+            />
+            <Select
+              title="Цвет шрифта"
+              selected={formState.fontColor}
+              options={fontColors}
+              onChange={(option) => setFormState({ ...formState, fontColor: option })}
+            />
+          </div>
+          
+          <div className={styles.separatorWrapper}>
+            <Separator />
+          </div>
+          
+          <div className={styles.section}>
+            <Select
+              title="Цвет фона"
+              selected={formState.backgroundColor}
+              options={backgroundColors}
+              onChange={(option) => setFormState({ ...formState, backgroundColor: option })}
+            />
+            <Select
+              title="Ширина контента"
+              selected={formState.contentWidth}
+              options={contentWidthArr}
+              onChange={(option) => setFormState({ ...formState, contentWidth: option })}
+            />
           </div>
         </div>
-      </aside>
-    </>
+        
+        <div className={styles.bottomContainer}>
+          <Button title="Сбросить" type="clear" onClick={handleFormReset} />
+          <Button title="Применить" type="apply" onClick={handleApply} />
+        </div>
+      </div>
+    </aside>
+  </>
   );
 };
