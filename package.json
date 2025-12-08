@@ -4,16 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"devDependencies": {
+		"@playwright/test": "^1.57.0",
 		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
-		"@storybook/addon-essentials": "^8.0.5",
-		"@storybook/addon-interactions": "^8.0.5",
-		"@storybook/addon-links": "^8.0.5",
-		"@storybook/addon-onboarding": "^8.0.5",
-		"@storybook/addon-styling-webpack": "^1.0.0",
-		"@storybook/addon-webpack5-compiler-swc": "^1.0.2",
-		"@storybook/blocks": "^8.0.5",
-		"@storybook/react-webpack5": "^8.0.5",
-		"@storybook/test": "^8.0.5",
 		"@svgr/webpack": "^8.0.1",
 		"@types/react": "^18.2.0",
 		"@types/react-dom": "^18.2.1",
@@ -45,7 +37,6 @@
 		"resolve-url-loader": "^5.0.0",
 		"sass": "^1.69.7",
 		"sass-loader": "^13.3.3",
-		"storybook": "^8.0.5",
 		"style-loader": "^3.3.3",
 		"stylelint": "^16.1.0",
 		"stylelint-config-standard-scss": "^13.0.0",
@@ -77,9 +68,19 @@
 		]
 	},
 	"dependencies": {
+		"@storybook/addon-essentials": "^8.6.14",
+		"@storybook/addon-interactions": "^8.6.14",
+		"@storybook/addon-links": "^8.6.14",
+		"@storybook/addon-onboarding": "^8.6.14",
+		"@storybook/addon-styling-webpack": "^1.0.1",
+		"@storybook/addon-webpack5-compiler-swc": "^1.0.6",
+		"@storybook/blocks": "^8.6.14",
+		"@storybook/react-webpack5": "^8.6.14",
+		"@storybook/test": "^8.6.14",
 		"clsx": "^2.1.0",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"storybook": "^8.6.14"
 	},
 	"lint-staged": {
 		"*.{css,scss}": "npm run stylelint:fix",
